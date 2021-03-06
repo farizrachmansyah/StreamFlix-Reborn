@@ -1,0 +1,115 @@
+.main {
+  background-color: $dark;
+
+  &__featured {
+    &__text {
+      color: $white;
+      font-family: $ff-normal;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+
+      @include breakpoint-up(medium) {
+        font-size: 0.8rem;
+        margin-bottom: 0.625rem;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: 1rem;
+      }
+
+      @include breakpoint-up(xlarge) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &__subtext {
+      color: $white;
+      font-family: $ff-stylist;
+      font-size: 1.75rem;
+      font-weight: 300;
+
+      @include breakpoint-up(medium) {
+        font-size: 2.25rem;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: 2.75rem;
+      }
+
+      @include breakpoint-up(xlarge) {
+        font-size: 3.5rem;
+      }
+
+      strong {
+        font-weight: 800;
+        color: $primary;
+      }
+    }
+  }
+
+  &__content {
+    padding: 2.25rem 0;
+
+    &__card {
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 85%;
+      margin: 0 auto;
+      margin-bottom: 2.25rem;
+      height: 400px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, #000);
+      }
+
+      .card-title {
+        color: $white;
+        font-size: 1.75rem;
+        font-family: $ff-stylist;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 0.625rem;
+      }
+
+      .card-price {
+        color: $white;
+        font-size: 1.2rem;
+        font-family: $ff-normal;
+        font-weight: 300;
+      }
+
+      .card-button {
+        border: 2px solid $primary;
+        color: $primary;
+        font-size: 1rem;
+        font-family: $ff-stylist;
+        font-weight: 800;
+        background-color: $dark;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-top: 1.25rem;
+        padding: 0.625rem 0;
+      }
+
+      .card-title,
+      .card-price,
+      .card-button {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+}

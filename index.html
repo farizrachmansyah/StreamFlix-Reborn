@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./app/css/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>StreamFlix | Best movie shop on planet</title>
+  </head>
+  <body>
+    <!-- Overlay Header Nav -->
+    <div class="overlay hide-for-desktop">
+      <div class="overlay__content flex flex-jc-c">
+        <a class="overlay__link" href="#">Movies</a>
+        <a class="overlay__link" href="#">Favorite</a>
+        <a class="overlay__link" href="#">My List</a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <nav class="header__nav container flex flex-ai-c">
+        <a href="./index.html" class="header__nav__logo"><span class="logo-span">Stream</span>Flix</a>
+
+        <div class="header__nav__menu hide-for-mobile">
+          <a href="#" class="menu">Movies</a>
+          <a href="#" class="menu">Favorite</a>
+          <a href="#" class="menu">My List</a>
+        </div>
+
+        <div class="header__nav__account flex hide-for-mobile">
+          <div class="header__nav__account__info flex">
+            <p class="info-text">Your Balance</p>
+            <p class="info-balance">Rp 100.000</p>
+          </div>
+
+          <div class="header__nav__account__user">
+            <img src="./app/assets/user_profile.svg" alt="user profile picture" class="user-profile" />
+          </div>
+        </div>
+
+        <!-- Burger Menu -->
+        <div class="header__nav__burger hide-for-desktop">
+          <div class="burger-line"></div>
+          <div class="burger-line"></div>
+          <div class="burger-line"></div>
+        </div>
+      </nav>
+
+      <div class="header__hero container flex flex-jc-c flex-ai-c">
+        <h1 class="header__hero__title">Welcome to the most affordable movies selling website</h1>
+        <p class="header__hero__subtitle">Find lots of movies you like,<br />and watch them legally at affordable prices.</p>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="container container--py">
+        <div class="main__featured">
+          <p class="main__featured__text">Indonesia</p>
+          <p class="main__featured__subtext"><strong>Now</strong> Showing</p>
+        </div>
+        <div class="main__content"></div>
+      </div>
+
+      <!-- Loading Animation -->
+      <div class="loading-animation">
+        <div class="loading-ball first-ball"></div>
+        <div class="loading-ball second-ball"></div>
+        <div class="loading-ball third-ball"></div>
+      </div>
+    </main>
+
+    <script src="./app/js/app.js"></script>
+  </body>
+</html>

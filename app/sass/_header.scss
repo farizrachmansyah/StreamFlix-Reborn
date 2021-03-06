@@ -1,0 +1,213 @@
+.header {
+  background: url(../assets/hero_image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(10, 4, 0, 0.65), $dark);
+  }
+
+  // Child Elements -------
+  &__nav {
+    position: relative;
+    padding: 1.875rem 0;
+    z-index: 2;
+
+    &__logo {
+      font-family: $ff-normal;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $white;
+
+      @include breakpoint-up(medium) {
+        font-size: $fs-lg;
+      }
+      @include breakpoint-up(xlarge) {
+        font-size: 2.75rem;
+      }
+
+      .logo-span {
+        color: $primary;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &__menu {
+      margin-left: auto;
+
+      .menu {
+        color: $white;
+        font-size: 1rem;
+        font-family: $ff-normal;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.3125rem;
+        cursor: default;
+        margin-right: 1.5625rem;
+
+        @include breakpoint-up(xlarge) {
+          font-size: 1.25rem;
+          margin-right: 1.875rem;
+        }
+
+        &:hover {
+          color: $light;
+        }
+      }
+    }
+
+    &__account {
+      border-radius: 3.125rem;
+      padding: 0.625rem 0.625rem 0.625rem 1.25rem;
+      background-color: $primary;
+
+      &__info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-right: 1.25rem;
+
+        .info-text {
+          font-size: 0.75rem;
+          font-weight: 300;
+
+          @include breakpoint-up(xlarge) {
+            font-size: 1rem;
+          }
+        }
+
+        .info-balance {
+          font-size: 1rem;
+          font-weight: 500;
+
+          @include breakpoint-up(xlarge) {
+            font-size: 1.25rem;
+          }
+        }
+
+        .info-text,
+        .info-balance {
+          font-family: $ff-stylist;
+        }
+      }
+
+      &__user {
+        .user-profile {
+          width: 3.125rem;
+        }
+      }
+    }
+
+    // Burger
+    &__burger {
+      position: absolute;
+      top: 50%;
+      right: 0%;
+      transform: translateY(-50%);
+      z-index: 4;
+
+      .burger-line {
+        width: 1.375rem;
+        height: 0.125rem;
+        background-color: $primary;
+        transform-origin: 1px 1px;
+        transition: all 0.5s ease;
+
+        @include breakpoint-up(medium) {
+          width: 2rem;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 0.3125rem;
+
+          @include breakpoint-up(medium) {
+            margin-bottom: 0.4375rem;
+          }
+        }
+      }
+    }
+
+    // Burger open styles
+    &.open {
+      .header__nav__burger {
+        .burger-line:nth-child(1) {
+          transform: rotate(45deg);
+        }
+        .burger-line:nth-child(2) {
+          opacity: 0;
+        }
+        .burger-line:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__hero {
+    position: relative;
+    z-index: 1;
+    height: 60vh;
+    padding: 0 0.625rem;
+    flex-direction: column;
+
+    @include breakpoint-up(medium) {
+      height: 40vh;
+    }
+    @include breakpoint-up(large) {
+      height: 60vh;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+      font-family: $ff-stylist;
+      color: $white;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 0.3125rem;
+
+      @include breakpoint-up(medium) {
+        font-size: 3rem;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: $fs-xlg;
+      }
+
+      @include breakpoint-up(xlarge) {
+        max-width: 70%;
+        font-size: 3.5rem;
+        margin-bottom: 0.625rem;
+      }
+    }
+
+    &__subtitle {
+      color: $light;
+      font-size: 0.8rem;
+      font-family: $ff-stylist;
+      text-align: center;
+      margin-top: 0.3125rem;
+
+      @include breakpoint-up(medium) {
+        font-size: 1.25rem;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: 1.5rem;
+      }
+
+      @include breakpoint-up(xlarge) {
+        font-size: 1.75rem;
+        margin-bottom: 0.625rem;
+      }
+    }
+  }
+}

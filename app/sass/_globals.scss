@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+// Spacing
+.container {
+  max-width: 85%;
+  margin: 0 auto;
+
+  &--p {
+    padding-top: 2.25rem;
+    padding-right: 1.5rem;
+    padding-bottom: 2.25rem;
+    padding-left: 1.5rem;
+  }
+  &--px {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  &--py {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+  &--pt {
+    padding-top: 2.25rem;
+  }
+  &--pr {
+    padding-right: 1.5rem;
+  }
+  &--pb {
+    padding-bottom: 2.25rem;
+  }
+  &--pl {
+    padding-left: 1.5rem;
+  }
+}
+
+// Flexbox
+.flex {
+  display: flex;
+
+  &-jc-c {
+    justify-content: center;
+  }
+  &-jc-sb {
+    justify-content: space-between;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+// Visibility for some header components
+.hide-for-mobile {
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(large) {
+    display: none;
+  }
+}
