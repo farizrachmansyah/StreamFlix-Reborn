@@ -2,6 +2,7 @@ window.addEventListener('load', async function () {
   const moviesData = await getMovies();
   const imagesData = await getImages(moviesData);
 
+  console.log(moviesData);
   // update ui
   updateUI(moviesData, imagesData);
 });
@@ -38,8 +39,7 @@ function createMovieCard(dataMovie, dataImage) {
   return `
     <a href="#" class="main__content__card flex" style="background-image: url('${dataImage}')">
       <h1 class="card-title">${dataMovie.title}</h1>
-      <p class="card-price">Rp 0000</p>
-      <button class="card-button">Buy</button>
+      <button class="card-button">Rp 0000</button>
     </a>
   `;
 }
