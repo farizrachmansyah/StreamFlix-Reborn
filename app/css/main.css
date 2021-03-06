@@ -440,7 +440,8 @@ a:hover {
 }
 
 .main__content {
-  padding: 2.25rem 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .main__content__card {
@@ -451,14 +452,18 @@ a:hover {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  width: 85%;
+  width: 250px;
   margin: 0 auto;
   margin-bottom: 2.25rem;
-  height: 400px;
+  height: 350px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+}
+
+.main__content__card:last-child {
+  margin-right: auto;
 }
 
 .main__content__card::after {
