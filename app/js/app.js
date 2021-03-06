@@ -1,10 +1,12 @@
 window.addEventListener('load', async function () {
   const moviesData = await getMovies();
   const imagesData = await getImages(moviesData);
+  const priceData = getMoviesPrice(moviesData);
 
   console.log(moviesData);
+  console.log(priceData);
   // update ui
-  updateUI(moviesData, imagesData);
+  updateUI(moviesData, imagesData, priceData);
 });
 
 function getMovies() {
@@ -23,23 +25,41 @@ function getImages(moviesdata) {
   return imagesData;
 }
 
-function updateUI(movies, images) {
+function getMoviesPrice(moviesdata) {
+  const prices = [];
+
+  moviesdata.forEach(data => {
+    if (data.vote_average <= 3) {
+      prices.push(3500);
+    } else if (data.vote_average <= 6) {
+      prices.push(8250);
+    } else if (data.vote_average <= 8) {
+      prices.push(16350);
+    } else if (data.vote_average <= 10) {
+      prices.push(21250);
+    }
+  });
+
+  return prices;
+}
+
+function updateUI(movies, images, prices) {
   const mainContent = document.querySelector('.main__content');
   let cards = '';
 
   movies.forEach((movie, index) => {
-    cards += createMovieCard(movie, images[index]);
+    cards += createMovieCard(movie, images[index], prices[index]);
   });
 
   mainContent.innerHTML = cards;
 }
 
 // creates the card element
-function createMovieCard(dataMovie, dataImage) {
+function createMovieCard(dataMovie, dataImage, dataPrice) {
   return `
     <a href="#" class="main__content__card flex" style="background-image: url('${dataImage}')">
       <h1 class="card-title">${dataMovie.title}</h1>
-      <button class="card-button">Rp 0000</button>
+      <button class="card-button">Rp ${dataPrice}</button>
     </a>
   `;
 }
