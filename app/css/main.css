@@ -445,6 +445,12 @@ a:hover {
 }
 
 .main__content__card {
+  margin: 0 auto;
+  margin-bottom: 2.25rem;
+  position: relative;
+}
+
+.main__content__card .card-poster {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -454,47 +460,44 @@ a:hover {
           justify-content: flex-end;
   width: 250px;
   height: 350px;
-  margin: 0 auto;
-  margin-bottom: 2.25rem;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  position: relative;
 }
 
-.main__content__card:last-child {
-  margin-right: auto;
-}
-
-.main__content__card::after {
+.main__content__card .card-poster::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000));
-  background: linear-gradient(to bottom, transparent, #000);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, transparent), color-stop(80%, #000));
+  background: linear-gradient(to bottom, transparent 20%, #000 80%);
 }
 
-.main__content__card .card-title {
-  color: #fff;
+.main__content__card .card-poster .card-title {
+  color: #98a3a5;
   font-size: 1.75rem;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+
+.main__content__card .card-poster .card-title:hover {
+  text-decoration: underline;
 }
 
 .main__content__card .card-button {
   border: 1px solid #fbb023;
+  width: 100%;
   color: #fbb023;
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   background-color: #0a0400;
   letter-spacing: 3px;
-  margin-top: 1.25rem;
   padding: 0.625rem 0;
   cursor: pointer;
 }

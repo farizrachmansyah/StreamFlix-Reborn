@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./app/css/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>StreamFlix | Best movie shop on planet</title>
+  </head>
+  <body>
+    <!-- Overlay Header Nav -->
+    <div class="overlay hide-for-desktop">
+      <div class="overlay__content flex flex-jc-c">
+        <a class="overlay__link" href="#">Movies</a>
+        <a class="overlay__link" href="#">Favorite</a>
+        <a class="overlay__link" href="#">My List</a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <nav class="header__nav container flex flex-ai-c">
+        <a href="./index.html" class="header__nav__logo"><span class="logo-span">Stream</span>Flix</a>
+
+        <div class="header__nav__menu hide-for-mobile">
+          <a href="#" class="menu">Movies</a>
+          <a href="#" class="menu">Favorite</a>
+          <a href="#" class="menu">My List</a>
+        </div>
+
+        <div class="header__nav__account flex hide-for-mobile">
+          <div class="header__nav__account__info flex">
+            <p class="info-text">Your Balance</p>
+            <p class="info-balance">Rp 100.000</p>
+          </div>
+
+          <div class="header__nav__account__user">
+            <img src="./app/assets/user_profile.svg" alt="user profile picture" class="user-profile" />
+          </div>
+        </div>
+
+        <!-- Burger Menu -->
+        <div class="header__nav__burger hide-for-desktop">
+          <div class="burger-line"></div>
+          <div class="burger-line"></div>
+          <div class="burger-line"></div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="details-main"></main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="footer__text">created with &hearts; by Fariz from Depok</p>
+    </footer>
+
+    <script src="./app/js/app.js"></script>
+  </body>
+</html>

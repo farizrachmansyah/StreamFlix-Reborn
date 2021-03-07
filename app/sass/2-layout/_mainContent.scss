@@ -54,53 +54,52 @@
     flex-wrap: wrap;
 
     &__card {
-      flex-direction: column;
-      justify-content: flex-end;
-      width: 250px;
-      height: 350px;
       margin: 0 auto;
       margin-bottom: 2.25rem;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
       position: relative;
 
-      @include breakpoint-up(large) {
-        // margin: 0 1.25rem 2.5rem 1.25rem;
-      }
+      .card-poster {
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 250px;
+        height: 350px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
 
-      &:last-child {
-        margin-right: auto;
-      }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to bottom, transparent 20%, #000 80%);
+        }
 
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, transparent, #000);
-      }
+        .card-title {
+          color: $light;
+          font-size: 1.75rem;
+          font-family: $ff-stylist;
+          font-weight: 800;
+          text-transform: uppercase;
+          margin-bottom: 1.25rem;
 
-      .card-title {
-        color: $white;
-        font-size: 1.75rem;
-        font-family: $ff-stylist;
-        font-weight: 800;
-        text-transform: uppercase;
-        margin-bottom: 0.625rem;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
 
       .card-button {
         border: 1px solid $primary;
+        width: 100%;
         color: $primary;
         font-size: 1rem;
         font-family: $ff-normal;
         font-weight: 400;
         background-color: $dark;
         letter-spacing: 3px;
-        margin-top: 1.25rem;
         padding: 0.625rem 0;
         cursor: pointer;
 

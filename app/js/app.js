@@ -65,10 +65,12 @@ function updateUI(movies, images, prices) {
 // creates the card element
 function createMovieCard(dataMovie, dataImage, dataPrice) {
   return `
-    <a href="#" class="main__content__card flex" style="background-image: url('${dataImage}')">
-      <h1 class="card-title">${dataMovie.title}</h1>
+    <div class="main__content__card">
+      <a href="./movie-details.html" class="card-poster flex" style="background-image: url('${dataImage}')">
+        <h1 class="card-title">${dataMovie.title}</h1>
+      </a>
       <button class="card-button">Rp ${dataPrice}</button>
-    </a>
+    </div>
   `;
 }
 
