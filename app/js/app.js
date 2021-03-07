@@ -6,18 +6,24 @@ if (document.title == 'StreamFlix | Best movie shop on planet') {
 
     // update ui
     updateUI(moviesData, imagesData, pricesData);
+
+    // Event binding for card-poster, and save the movieid into local storage
+    cardClicked();
   });
 } else {
   window.addEventListener('load', async function () {
-    const moviesData = await getMovies();
-    const imagesData = await getImages(moviesData);
-    const pricesData = getMoviesPrice(moviesData);
+    const selectedMovieID = localStorage.getItem('movieid');
+    const selectedMoviePrice = localStorage.getItem('movieprice')
+    const detailMoviesData = await getDetailMovies(selectedMovieID);
+    const backdropData = await getBackdrop(detailMoviesData);
 
+    console.log(detailMoviesData);
     // update ui
-    // updateUI(moviesData, imagesData, pricesData);
+    updateDetailsUI(selectedMoviePrice, detailMoviesData, backdropData);
   });
 }
 
+// HOME PAGE -------------------------------
 function getMovies() {
   const API_URL = 'https://api.themoviedb.org/3/movie/now_playing?api_key=c1042292167adc9dc2dbe3a920a743d2&language=en-US&region=ID';
 
@@ -73,18 +79,54 @@ function updateUI(movies, images, prices) {
   mainContent.innerHTML = cards;
 }
 
-// creates the card element
 function createMovieCard(dataMovie, dataImage, dataPrice) {
   return `
     <div class="main__content__card">
-      <a href="./movie-details.html" class="card-poster flex" style="background-image: url('${dataImage}')">
+      <a href="./movie-details.html" data-movieid="${dataMovie.id}" class="card-poster flex" style="background-image: url('${dataImage}')">
         <h1 class="card-title">${dataMovie.title}</h1>
       </a>
-      <button class="card-button">Rp ${dataPrice}</button>
+      <button class="card-button" data-strprice="${dataPrice}">Rp ${dataPrice}</button>
     </div>
   `;
 }
 
+function cardClicked() {
+  // Event binding untuk card-poster element
+  document.addEventListener('click', function (e) {
+    // jika yang di klik adalah element dengan class tertentu
+    if (e.target.classList.contains('card-poster')) {
+      const buttonPrice = e.target.nextElementSibling;
+      const movieID = e.target.dataset.movieid;
+      const moviePrice = buttonPrice.dataset.strprice;
+
+      localStorage.setItem('movieid', movieID);
+      localStorage.setItem('movieprice', moviePrice);
+    }
+  });
+}
+
+// DETAILS PAGE -------------------------------
+function getDetailMovies(movieid) {
+  const API_URL = `https://api.themoviedb.org/3/movie/${movieid}?api_key=c1042292167adc9dc2dbe3a920a743d2&language=en-US`;
+
+  return fetch(API_URL)
+    .then(res => res.json())
+    .then(res => res);
+}
+
+function getBackdrop(selectedmovie) {
+  const BACKDROP_URL = 'https://image.tmdb.org/t/p/original';
+
+  const backdropLink = `${BACKDROP_URL}${selectedmovie.backdrop_path}`;
+
+  return backdropLink;
+}
+
+function updateDetailsUI(price, detailmovie, backdrop) {
+  // console.log(movies);
+}
+
+// ANOTHER STUFF -------------------------------
 // Burger Button
 const body = document.querySelector('body');
 const nav = document.querySelector('.header__nav');
