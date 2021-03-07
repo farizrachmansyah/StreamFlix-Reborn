@@ -2,9 +2,12 @@ window.addEventListener('load', async function () {
   const moviesData = await getMovies();
   const imagesData = await getImages(moviesData);
   const pricesData = getMoviesPrice(moviesData);
+  const videosData = await getVideo(moviesData);
+
+  console.log(videosData);
 
   // update ui
-  updateUI(moviesData, imagesData, pricesData);
+  // updateUI(moviesData, imagesData, priceData);
 });
 
 function getMovies() {
@@ -41,37 +44,23 @@ function getMoviesPrice(moviesdata) {
   return prices;
 }
 
-function updateUI(movies, images, prices) {
-  // Convert the price into string
-  const convertedPrices = prices.map(String);
-  // Modify the price with adding a period
-  const strPrices = convertedPrices.map(str => {
-    let splitPrice = str.split('');
-    splitPrice.splice(-3, 0, '.');
+function getVideo(moviesdata) {
+  const videosurl = [];
+  moviesdata.forEach(async data => {
+    let VIDEO_URL = `https://api.themoviedb.org/3/movie/${data.id}/videos?api_key=c1042292167adc9dc2dbe3a920a743d2&append_to_response=videos`
 
-    return splitPrice.join('');
+    const res = await fetch(VIDEO_URL);
+    const res_1 = await res.json();
+
+    if (res_1.results[0] === undefined) {
+      videosurl.push(undefined);
+    } else {
+      videosurl.push(res_1.results[0].key);
+    }
   });
 
-  const mainContent = document.querySelector('.main__content');
-  let cards = '';
-
-  movies.forEach((movie, index) => {
-    cards += createMovieCard(movie, images[index], strPrices[index]);
-  });
-
-  mainContent.innerHTML = cards;
-}
-
-// creates the card element
-function createMovieCard(dataMovie, dataImage, dataPrice) {
-  return `
-    <div class="main__content__card">
-      <a href="./movie-details.html" class="card-poster flex" style="background-image: url('${dataImage}')">
-        <h1 class="card-title">${dataMovie.title}</h1>
-      </a>
-      <button class="card-button">Rp ${dataPrice}</button>
-    </div>
-  `;
+  // console.log(videosurl);
+  return videosurl;
 }
 
 // Burger Button
