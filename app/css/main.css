@@ -487,11 +487,11 @@ a:hover {
 }
 
 .main__content__card .card-button {
-  border: 2px solid #fbb023;
+  border: 1px solid #fbb023;
   color: #fbb023;
   font-size: 1rem;
   font-family: "Roboto", sans-serif;
-  font-weight: 800;
+  font-weight: 400;
   background-color: #0a0400;
   letter-spacing: 3px;
   margin-top: 1.25rem;

@@ -3,8 +3,6 @@ window.addEventListener('load', async function () {
   const imagesData = await getImages(moviesData);
   const priceData = getMoviesPrice(moviesData);
 
-  console.log(moviesData);
-  console.log(priceData);
   // update ui
   updateUI(moviesData, imagesData, priceData);
 });
@@ -44,11 +42,21 @@ function getMoviesPrice(moviesdata) {
 }
 
 function updateUI(movies, images, prices) {
+  // Convert the price into string
+  const convertedPrices = prices.map(String);
+  // Modify the price with adding a period
+  const strPrices = convertedPrices.map(str => {
+    let splitPrice = str.split('');
+    splitPrice.splice(-3, 0, '.');
+
+    return splitPrice.join('');
+  });
+
   const mainContent = document.querySelector('.main__content');
   let cards = '';
 
   movies.forEach((movie, index) => {
-    cards += createMovieCard(movie, images[index], prices[index]);
+    cards += createMovieCard(movie, images[index], strPrices[index]);
   });
 
   mainContent.innerHTML = cards;
