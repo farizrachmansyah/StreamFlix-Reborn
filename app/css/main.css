@@ -453,9 +453,9 @@ a:hover {
       -ms-flex-pack: end;
           justify-content: flex-end;
   width: 250px;
+  height: 350px;
   margin: 0 auto;
   margin-bottom: 2.25rem;
-  height: 350px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -532,5 +532,37 @@ a:hover {
 .main__content__card .card-button {
   position: relative;
   z-index: 1;
+}
+
+.footer {
+  text-align: center;
+  padding: 2.25rem;
+  background-color: #0a0400;
+}
+
+.footer__text {
+  color: #666;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.625rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 40em) {
+  .footer__text {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .footer__text {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .footer__text {
+    font-size: 1rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */

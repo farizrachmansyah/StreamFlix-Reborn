@@ -1,0 +1,23 @@
+.footer {
+  text-align: center;
+  padding: 2.25rem;
+  background-color: $dark;
+
+  &__text {
+    color: #666;
+    font-family: $ff-stylist;
+    font-size: 0.625rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+
+    @include breakpoint-up(medium) {
+      font-size: 0.75rem;
+    }
+    @include breakpoint-up(large) {
+      font-size: 0.875rem;
+    }
+    @include breakpoint-up(large) {
+      font-size: 1rem;
+    }
+  }
+}

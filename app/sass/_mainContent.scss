@@ -52,17 +52,22 @@
 
   &__content {
     flex-wrap: wrap;
+
     &__card {
       flex-direction: column;
       justify-content: flex-end;
       width: 250px;
+      height: 350px;
       margin: 0 auto;
       margin-bottom: 2.25rem;
-      height: 350px;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       position: relative;
+
+      @include breakpoint-up(large) {
+        // margin: 0 1.25rem 2.5rem 1.25rem;
+      }
 
       &:last-child {
         margin-right: auto;
