@@ -537,6 +537,11 @@ a:hover {
   z-index: 1;
 }
 
+.details-main__videoplayer {
+  width: 100%;
+  aspect-ratio: 12 / 6;
+}
+
 .footer {
   text-align: center;
   padding: 2.25rem;
