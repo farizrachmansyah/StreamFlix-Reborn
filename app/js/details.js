@@ -2,9 +2,6 @@ window.addEventListener('load', async function () {
   const moviesData = await getMovies();
   const imagesData = await getImages(moviesData);
   const pricesData = getMoviesPrice(moviesData);
-  const videosData = await getVideo(moviesData);
-
-  console.log(videosData);
 
   // update ui
   // updateUI(moviesData, imagesData, priceData);
@@ -44,25 +41,6 @@ function getMoviesPrice(moviesdata) {
   return prices;
 }
 
-function getVideo(moviesdata) {
-  const videosurl = [];
-  moviesdata.forEach(async data => {
-    let VIDEO_URL = `https://api.themoviedb.org/3/movie/${data.id}/videos?api_key=c1042292167adc9dc2dbe3a920a743d2&append_to_response=videos`
-
-    const res = await fetch(VIDEO_URL);
-    const res_1 = await res.json();
-
-    if (res_1.results[0] === undefined) {
-      videosurl.push(undefined);
-    } else {
-      videosurl.push(res_1.results[0].key);
-    }
-  });
-
-  // console.log(videosurl);
-  return videosurl;
-}
-
 // Burger Button
 const body = document.querySelector('body');
 const nav = document.querySelector('.header__nav');
@@ -90,3 +68,12 @@ burgerButton.addEventListener('click', () => {
     body.style.overflow = 'hidden';
   }
 });
+
+// Details Click
+const cardPoster = document.querySelector('.card-poster');
+console.log(cardPoster);
+// cardPoster.forEach(card => {
+//   card.addEventListener('click', (e) => {
+//     console.log(e.target);
+//   });
+// });

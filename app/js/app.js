@@ -1,11 +1,22 @@
-window.addEventListener('load', async function () {
-  const moviesData = await getMovies();
-  const imagesData = await getImages(moviesData);
-  const pricesData = getMoviesPrice(moviesData);
+if (document.title == 'StreamFlix | Best movie shop on planet') {
+  window.addEventListener('load', async function () {
+    const moviesData = await getMovies();
+    const imagesData = await getImages(moviesData);
+    const pricesData = getMoviesPrice(moviesData);
 
-  // update ui
-  updateUI(moviesData, imagesData, pricesData);
-});
+    // update ui
+    updateUI(moviesData, imagesData, pricesData);
+  });
+} else {
+  window.addEventListener('load', async function () {
+    const moviesData = await getMovies();
+    const imagesData = await getImages(moviesData);
+    const pricesData = getMoviesPrice(moviesData);
+
+    // update ui
+    // updateUI(moviesData, imagesData, pricesData);
+  });
+}
 
 function getMovies() {
   const API_URL = 'https://api.themoviedb.org/3/movie/now_playing?api_key=c1042292167adc9dc2dbe3a920a743d2&language=en-US&region=ID';
