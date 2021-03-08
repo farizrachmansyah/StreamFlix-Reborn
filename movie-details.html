@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./app/css/main.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&family=Bangers&display=swap"
       rel="stylesheet"
     />
     <title>StreamFlix | Movie Details</title>
@@ -24,7 +24,7 @@
     </div>
 
     <!-- Header -->
-    <header class="header">
+    <header class="header details-header">
       <nav class="header__nav container flex flex-ai-c">
         <a href="./index.html" class="header__nav__logo"><span class="logo-span">Stream</span>Flix</a>
 
@@ -56,28 +56,35 @@
 
     <!-- Main -->
     <main class="details-main">
-      <h1 class="details-main__title">Prison Break</h1>
-      <div class="details-main__about">
-        <h2 class="details-main__about__price">Rp xxxxx</h2>
-        <div class="details-main__about__info">
-          <span class="info-rating">2021</span>
-          <span>|</span>
-          <span class="info-year">2021</span>
-          <span>|</span>
-          <span class="info-genre">2021</span>
+      <div class="details-main__backdrop"></div>
+      <div class="details-main__content container--px">
+        <h1 class="details-main__content__title">Prison Break</h1>
+        <div class="details-main__content__about">
+          <h2 class="details-main__content__about__price">Rp xxxxx</h2>
+          <div class="details-main__content__about__info">
+            <span class="info-rating">7.4</span>
+            <span class="info-spacer">|</span>
+            <span class="info-year">2021</span>
+            <span class="info-spacer">|</span>
+            <span class="info-genre">Horror, Thriller, Drama</span>
+          </div>
+          <p class="details-main__content__about__overview">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos cupiditate aliquid atque minus dolores eum, dolore voluptatem
+            dignissimos in at.
+          </p>
+          <div class="details-main__content__about__credits">
+            <p class="credits-cast"><span>Starring:</span> ujang, udin, sukijo, cecep, supri, tukiman, tejo, sapei</p>
+          </div>
         </div>
-        <p class="details-main__about__overview">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos cupiditate aliquid atque minus dolores eum, dolore voluptatem
-          dignissimos in at.
-        </p>
-        <div class="details-main__about__credits">
-          <p class="credits-cast"><span>Starring:</span> ujang, udin, sukijo, cecep, supri, tukiman, tejo, sapei</p>
+        <div class="details-main__button">
+          <button class="button-watch">watch</button>
+          <button class="button-buy">buy</button>
         </div>
       </div>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer details-footer">
       <p class="footer__text">created with &hearts; by Fariz from Depok</p>
     </footer>
 
