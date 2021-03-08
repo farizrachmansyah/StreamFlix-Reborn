@@ -216,4 +216,8 @@
 .details-header {
   background: none;
   background-color: $dark;
+
+  @include breakpoint-up(desktop) {
+    max-height: 106px;
+  }
 }

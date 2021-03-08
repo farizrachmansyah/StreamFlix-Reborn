@@ -148,6 +148,10 @@
     background-repeat: no-repeat;
     position: relative;
 
+    @include breakpoint-up(desktop) {
+      display: none;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -163,6 +167,29 @@
   }
 
   &__content {
+    padding: 0 5.625rem;
+
+    @include breakpoint-up(desktop) {
+      height: calc(100vh - 106px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: url("../assets/hero_image.jpg");
+      background-position: center;
+      background-size: cover;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(10, 4, 0, 1) 45%, rgba(10, 4, 0, 0.8211659663865546) 55%, rgba(10, 4, 0, 0) 65%);
+      }
+    }
+
     &__title {
       background: linear-gradient(-7deg, rgba(0, 0, 0, 1) 50%, rgba(251, 176, 35, 1) 50%);
       -webkit-background-clip: text;
@@ -173,29 +200,111 @@
       letter-spacing: 2px;
       position: relative;
       z-index: 1;
+
+      @include breakpoint-up(medium) {
+        font-size: 6rem;
+        margin-top: -3.25rem;
+      }
+
+      @include breakpoint-up(desktop) {
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        color: $primary;
+        margin: 0;
+        max-width: 70%;
+        font-size: 4.25rem;
+      }
     }
 
     &__about {
       margin: 1.75rem 0;
       overflow: auto;
 
+      @include breakpoint-up(medium) {
+        margin: 2.5rem 0;
+      }
+
+      @include breakpoint-up(desktop) {
+        position: relative;
+        z-index: 1;
+      }
+
+      @include breakpoint-up(xxlarge) {
+        margin: 3rem 0;
+      }
+
       > *:not(:last-child) {
         margin-bottom: 1.25rem;
+
+        @include breakpoint-up(medium) {
+          margin-bottom: 2.25rem;
+        }
+
+        @include breakpoint-up(desktop) {
+          margin-bottom: 1.75rem;
+        }
+
+        @include breakpoint-up(xlarge) {
+          margin-bottom: 2rem;
+        }
+
+        @include breakpoint-up(xxlarge) {
+          margin-bottom: 2.75rem;
+        }
       }
 
       &__price {
         font-family: $ff-normal;
+
+        @include breakpoint-up(medium) {
+          font-size: 2.75rem;
+        }
+
+        @include breakpoint-up(desktop) {
+          color: $white;
+          font-size: 1.875rem;
+        }
+
+        @include breakpoint-up(xlarge) {
+          color: $white;
+          font-size: 2.25rem;
+        }
       }
 
       &__info {
         font-size: 0.875rem;
         color: $light;
 
+        @include breakpoint-up(medium) {
+          font-size: 1.35rem;
+        }
+
+        @include breakpoint-up(desktop) {
+          font-size: 0.875rem;
+        }
+
+        @include breakpoint-up(xlarge) {
+          font-size: 1.25rem;
+        }
+
         .info-rating {
           color: $dark;
           font-weight: 600;
           background-color: $primary;
           padding: 0.3125rem;
+
+          @include breakpoint-up(medium) {
+            padding: 0.625rem;
+          }
+
+          @include breakpoint-up(desktop) {
+            padding: 0.3125rem;
+          }
+
+          @include breakpoint-up(xlarge) {
+            padding: 0.4375rem;
+          }
         }
 
         .info-spacer {
@@ -208,39 +317,108 @@
         font-family: $ff-stylist;
         font-weight: 500;
 
+        @include breakpoint-up(medium) {
+          font-size: 1.5rem;
+        }
+
+        @include breakpoint-up(desktop) {
+          color: $white;
+          font-size: 1rem;
+        }
+
+        @include breakpoint-up(xlarge) {
+          font-size: 1.375rem;
+        }
+
         span {
           color: $light;
         }
       }
+
+      &__overview {
+        @include breakpoint-up(medium) {
+          max-width: 70%;
+        }
+
+        @include breakpoint-up(desktop) {
+          max-width: 35%;
+        }
+      }
+
+      &__credits {
+        @include breakpoint-up(desktop) {
+          max-width: 45%;
+        }
+      }
     }
-  }
 
-  &__button {
-    margin-bottom: 1.75rem;
+    &__button {
+      margin-bottom: 1.75rem;
 
-    .button-watch {
-      width: 100%;
-      padding: 0.625rem;
-      margin-bottom: 0.625rem;
-      border: none;
-      background-color: $secondary;
-      color: $white;
-      font-family: $ff-stylist;
-      font-size: 1rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
+      @include breakpoint-up(medium) {
+        margin-bottom: 2.5rem;
+      }
 
-    .button-buy {
-      width: 100%;
-      padding: 0.625rem;
-      border: none;
-      background-color: $primary;
-      color: $dark;
-      font-family: $ff-stylist;
-      font-size: 1rem;
-      font-weight: 600;
-      text-transform: uppercase;
+      @include breakpoint-up(desktop) {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 1.75rem;
+      }
+
+      .button-watch,
+      .button-buy {
+        width: 100%;
+        padding: 0.625rem;
+        border: none;
+        font-family: $ff-stylist;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        @include breakpoint-up(medium) {
+          font-size: 1.5rem;
+          padding: 1.25rem;
+        }
+
+        @include breakpoint-up(desktop) {
+          font-size: 1rem;
+          padding: 0.875rem;
+          max-width: 45%;
+        }
+
+        @include breakpoint-up(xlarge) {
+          font-size: 1.25rem;
+        }
+
+        @include breakpoint-up(xxlarge) {
+          font-size: 1.5rem;
+        }
+      }
+
+      .button-watch {
+        margin-bottom: 0.625rem;
+        background-color: $secondary;
+        color: $white;
+
+        @include breakpoint-up(medium) {
+          margin-bottom: 1rem;
+        }
+
+        @include breakpoint-up(desktop) {
+          margin-bottom: 0.875rem;
+        }
+
+        @include breakpoint-up(xxlarge) {
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      .button-buy {
+        background-color: $primary;
+        color: $white;
+      }
     }
   }
 }
