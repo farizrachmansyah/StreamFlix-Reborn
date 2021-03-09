@@ -142,7 +142,6 @@
   &__backdrop {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: url("../assets/hero_image.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -167,16 +166,18 @@
   }
 
   &__content {
-    padding: 0 5.625rem;
+    @include breakpoint-up(medium) {
+      padding: 0 5.625rem;
+    }
 
     @include breakpoint-up(desktop) {
       height: calc(100vh - 106px);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: url("../assets/hero_image.jpg");
       background-position: center;
       background-size: cover;
+      background-repeat: no-repeat;
       position: relative;
 
       &::after {
@@ -212,7 +213,15 @@
         -webkit-text-fill-color: unset;
         color: $primary;
         margin: 0;
-        max-width: 70%;
+        max-width: 60%;
+        font-size: 3.25rem;
+      }
+
+      @include breakpoint-up(xlarge) {
+        font-size: 3.75rem;
+      }
+
+      @include breakpoint-up(xxlarge) {
         font-size: 4.25rem;
       }
     }
@@ -221,6 +230,10 @@
       margin: 1.75rem 0;
       overflow: auto;
 
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
       @include breakpoint-up(medium) {
         margin: 2.5rem 0;
       }
@@ -228,6 +241,7 @@
       @include breakpoint-up(desktop) {
         position: relative;
         z-index: 1;
+        margin: 1.75rem 0;
       }
 
       @include breakpoint-up(xxlarge) {
@@ -242,7 +256,7 @@
         }
 
         @include breakpoint-up(desktop) {
-          margin-bottom: 1.75rem;
+          margin-bottom: 1.125rem;
         }
 
         @include breakpoint-up(xlarge) {
@@ -347,7 +361,7 @@
 
       &__credits {
         @include breakpoint-up(desktop) {
-          max-width: 45%;
+          max-width: 35%;
         }
       }
     }
@@ -385,7 +399,7 @@
         @include breakpoint-up(desktop) {
           font-size: 1rem;
           padding: 0.875rem;
-          max-width: 45%;
+          max-width: 35%;
         }
 
         @include breakpoint-up(xlarge) {

@@ -551,7 +551,6 @@ a:hover {
 .details-main__backdrop {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: url("../assets/hero_image.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -575,8 +574,10 @@ a:hover {
   background: linear-gradient(180deg, #0a0400 5%, rgba(0, 0, 0, 0) 50%, #0a0400 85%);
 }
 
-.details-main__content {
-  padding: 0 5.625rem;
+@media (min-width: 40em) {
+  .details-main__content {
+    padding: 0 5.625rem;
+  }
 }
 
 @media (min-width: 75em) {
@@ -592,9 +593,9 @@ a:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background: url("../assets/hero_image.jpg");
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     position: relative;
   }
   .details-main__content::after {
@@ -635,7 +636,19 @@ a:hover {
     -webkit-text-fill-color: unset;
     color: #fbb023;
     margin: 0;
-    max-width: 70%;
+    max-width: 60%;
+    font-size: 3.25rem;
+  }
+}
+
+@media (min-width: 87.5em) {
+  .details-main__content__title {
+    font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 120em) {
+  .details-main__content__title {
     font-size: 4.25rem;
   }
 }
@@ -643,6 +656,10 @@ a:hover {
 .details-main__content__about {
   margin: 1.75rem 0;
   overflow: auto;
+}
+
+.details-main__content__about::-webkit-scrollbar {
+  width: 0;
 }
 
 @media (min-width: 40em) {
@@ -655,6 +672,7 @@ a:hover {
   .details-main__content__about {
     position: relative;
     z-index: 1;
+    margin: 1.75rem 0;
   }
 }
 
@@ -676,7 +694,7 @@ a:hover {
 
 @media (min-width: 75em) {
   .details-main__content__about > *:not(:last-child) {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.125rem;
   }
 }
 
@@ -810,7 +828,7 @@ a:hover {
 
 @media (min-width: 75em) {
   .details-main__content__about__credits {
-    max-width: 45%;
+    max-width: 35%;
   }
 }
 
@@ -863,7 +881,7 @@ a:hover {
   .details-main__content__button .button-buy {
     font-size: 1rem;
     padding: 0.875rem;
-    max-width: 45%;
+    max-width: 35%;
   }
 }
 
@@ -940,15 +958,5 @@ a:hover {
   .footer__text {
     font-size: 1rem;
   }
-}
-
-.details-footer {
-  width: 100%;
-  background-color: #fbb023;
-  padding: 1rem;
-}
-
-.details-footer .footer__text {
-  color: #0a0400;
 }
 /*# sourceMappingURL=main.css.map */
